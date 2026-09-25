@@ -38,6 +38,7 @@
             app:cardBackgroundColor="@android:color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:strokeWidth="0dp"
             app:layout_constraintBottom_toBottomOf="parent">
 
             <ImageButton
@@ -53,9 +54,6 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <!-- ========================= -->
-    <!-- Scrollable Content -->
-    <!-- ========================= -->
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/scrollView"
@@ -74,18 +72,15 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <!-- Product Image -->
-
             <ImageView
                 android:id="@+id/imgProduct"
                 android:layout_width="match_parent"
+                android:background="@color/white_shade"
                 android:layout_height="200dp"
                 android:layout_marginHorizontal="28dp"
                 android:layout_marginTop="20dp"
-                android:scaleType="fitCenter"
-                tools:src="@drawable/image"/>
+                android:scaleType="fitCenter" />
 
-            <!-- Image Indicator -->
 
             <me.relex.circleindicator.CircleIndicator3
                 android:id="@+id/productIndicator"
@@ -99,26 +94,19 @@
                 app:ci_height="8dp"
                 app:ci_margin="6dp"/>
 
-            <!-- ========================= -->
-            <!-- Product Card + Favourite -->
-            <!-- ========================= -->
-
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="36dp"
-                android:layout_marginHorizontal="16dp"
                 android:layout_marginBottom="32dp">
 
-                <!-- Product Card -->
 
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/productCard"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="30dp"
-                    app:cardCornerRadius="24dp"
-                    app:cardElevation="8dp"
+
                     app:strokeWidth="0dp"
                     app:cardBackgroundColor="@android:color/white">
 
@@ -134,12 +122,11 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="12dp"
-                            android:fontFamily="@font/poppins_semibold"
+                            android:fontFamily="@font/source_sans_pro_semibold"
                             android:textColor="@color/textPrimary"
                             android:textSize="24sp"
-                            tools:text="Fjallraven Backpack"/>
+                            tools:text="Fjallraven Backpack" />
 
-                        <!-- Category -->
 
                         <TextView
                             android:id="@+id/txtCategory"
@@ -163,7 +150,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:fontFamily="@font/poppins_medium"
+                                android:fontFamily="@font/source_sans_pro"
                                 android:text="Availability"
                                 android:textColor="#757575"
                                 android:textSize="14sp" />
@@ -173,14 +160,12 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="8dp"
-                                android:fontFamily="@font/poppins_semibold"
+                                android:fontFamily="@font/source_sans_pro"
                                 android:text="In Stock"
                                 android:textColor="@color/primaryGreen"
                                 android:textSize="14sp" />
 
                         </LinearLayout>
-
-                        <!-- Price + Rating -->
 
                         <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="match_parent"
@@ -196,10 +181,7 @@
                                 android:textSize="30sp"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="parent"
-                                android:text="$109.95" />
-
-
-
+                                />
 
                         </androidx.constraintlayout.widget.ConstraintLayout>
                         <LinearLayout
@@ -212,20 +194,20 @@
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="@id/txtPrice">
 
-                            <ImageView
-                                android:layout_width="18dp"
-                                android:layout_height="18dp"
-                                android:src="@drawable/star"/>
+<!--                            <ImageView-->
+<!--                                android:layout_width="18dp"-->
+<!--                                android:layout_height="18dp"-->
+<!--                                android:src="@drawable/star"/>-->
 
-                            <TextView
-                                android:id="@+id/txtRating"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="6dp"
-                                android:fontFamily="@font/poppins_medium"
-                                android:textColor="#666666"
-                                android:textSize="14sp"
-                                tools:text="4.5 (120)"/>
+<!--                            <TextView-->
+<!--                                android:id="@+id/txtRating"-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_marginStart="6dp"-->
+<!--                                android:fontFamily="@font/poppins_medium"-->
+<!--                                android:textColor="#666666"-->
+<!--                                android:textSize="14sp"-->
+<!--                                tools:text="4.5 (120)"/>-->
 
                         </LinearLayout>
 
@@ -236,7 +218,7 @@
                             android:layout_marginTop="22dp"
                             android:background="#EEEEEE"/>
 
-                        <!-- Description -->
+
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -262,7 +244,6 @@
 
                 </com.google.android.material.card.MaterialCardView>
 
-                <!-- Floating Favourite Button -->
 
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/btnFavourite"
@@ -285,12 +266,238 @@
                 </com.google.android.material.card.MaterialCardView>
 
             </FrameLayout>
+
+
+            <!-- ========================================== -->
+            <!-- SIMILAR PRODUCTS BANNER SECTION             -->
+            <!-- ========================================== -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/bg_similar_products_banner"
+                android:paddingVertical="20dp"
+                android:paddingStart="16dp">
+
+                <LinearLayout
+                    android:id="@+id/bannerContentLayout"
+                    android:layout_width="140dp"
+                    android:layout_height="0dp"
+                    android:orientation="vertical"
+                    android:gravity="center_vertical"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Discover more"
+                        android:textSize="12sp"
+                        android:textColor="@android:color/white"
+                        android:alpha="0.8" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Similar\nProducts"
+                        android:textSize="22sp"
+                        android:fontFamily="@font/source_sans_pro_semibold"
+                        android:textColor="@android:color/white"
+                        android:lineSpacingExtra="2dp"
+                        android:layout_marginBottom="16dp" />
+
+                    <Button
+                        android:id="@+id/btnShopNow"
+                        android:layout_width="wrap_content"
+                        android:layout_height="36dp"
+                        android:text="SHOP NOW"
+                        android:textSize="11sp"
+                        android:fontFamily="@font/poppins_medium"
+                        android:textColor="@android:color/white"
+                        android:backgroundTint="@color/primaryGreen"
+                        android:insetTop="0dp"
+                        android:insetBottom="0dp" />
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvSimilarProducts"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:clipToPadding="false"
+                    android:paddingEnd="16dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/bannerContentLayout"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:listitem="@layout/item_product" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="24dp"
+                android:paddingBottom="32dp">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/bg_rounded_card"
+                    android:padding="16dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/txtAverageRating"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0.0"
+                            android:textSize="36sp"
+                            android:fontFamily="@font/source_sans_pro_semibold"
+                            android:textColor="@color/textPrimary" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="/5"
+                            android:textSize="14sp"
+                            android:textColor="#8E8E93" />
+
+                        <TextView
+                            android:id="@+id/txtTotalReviewsCount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="No reviews yet"
+                            android:textSize="12sp"
+                            android:textColor="#8E8E93" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:orientation="vertical">
+
+                        <RatingBar
+                            android:id="@+id/ratingBarSummary"
+                            style="?android:attr/ratingBarStyleSmall"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:numStars="5"
+                            android:stepSize="0.1"
+                            android:isIndicator="true"
+                            android:progressTint="#FFB800"
+                            android:progressBackgroundTint="#D1D1D6"
+                            android:secondaryProgressTint="#FFB800" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Empty State Layout for Reviews -->
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="24dp"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:id="@+id/txtReviewsHeading"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Reviews (0)"
+                        android:fontFamily="@font/source_sans_pro_semibold"
+                        android:textSize="16sp"
+                        android:textColor="@color/textPrimary" />
+
+                    <TextView
+                        android:id="@+id/btnWriteReview"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="WRITE REVIEW +"
+                        android:fontFamily="@font/poppins_medium"
+                        android:textSize="13sp"
+                        android:textColor="@color/primaryGreen"
+                        android:clickable="true"
+                        android:focusable="true" />
+                </LinearLayout>
+
+                <!-- RecyclerView for Dynamic Reviews -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvReviews"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:nestedScrollingEnabled="false"
+                    tools:itemCount="2"
+                    tools:listitem="@layout/item_review" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layoutNoReviews"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="24dp"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:src="@drawable/img_empty_rating"
+                    android:contentDescription="No reviews illustration" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="No reviews yet !"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/black"
+                    android:layout_marginTop="16dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="No review have been posted here"
+                    android:textSize="14sp"
+                    android:textColor="@android:color/darker_gray"
+                    android:layout_marginTop="6dp" />
+
+                <Button
+                    android:id="@+id/btnAddReviewEmpty"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ADD REVIEW"
+                    android:backgroundTint="@color/priceColor"
+                    android:textColor="@android:color/white"
+                    android:layout_marginTop="20dp"
+                    android:paddingHorizontal="24dp" />
+            </LinearLayout>
+
         </LinearLayout>
+
+
     </androidx.core.widget.NestedScrollView>
 
-    <!-- ================================================= -->
-    <!-- Bottom Cart Bar -->
-    <!-- ================================================= -->
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/bottomBar"
@@ -324,7 +531,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins_medium"
+                    android:fontFamily="@font/source_sans_pro"
                     android:text="Price"
                     android:textColor="#999999"
                     android:textSize="12sp" />
@@ -335,7 +542,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
                     android:fontFamily="@font/source_sans_pro_semibold"
-                    android:text="$109.95"
                     android:textColor="@color/textPrimary"
                     android:textSize="26sp" />
 
